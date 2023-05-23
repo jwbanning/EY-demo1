@@ -1,0 +1,154 @@
+---
+openapi: 3.0.3
+info:
+  title: Accounts - new name.. 
+  version: 1.0.0
+  contact: {}
+  description: some text
+servers:
+  - url: "{{url}}"
+paths:
+  /accounts/create:
+    post:
+      summary: Create - this is a new summary
+      description: Create
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                holder:
+                  type: string
+                  example: "{{customerId}}"
+                type:
+                  type: string
+                  example: "Checking Account"
+            example:
+              holder: "{{customerId}}"
+              type: "Checking Account"
+      responses:
+        "200":
+          description: ""
+  "/accounts/{accountNumber}/overview":
+    get:
+      summary: Overview
+      description: Overview
+      operationId: overview
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: accountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+  "/accounts/{accountNumber}/statement/date":
+    get:
+      tags:
+        - Statement
+      summary: Date
+      description: Date
+      operationId: date
+      requestBody:
+        content:
+          application/form-urlencoded:
+            schema:
+              type: object
+              properties:
+                from:
+                  type: string
+                  example: "Wed Apr 27 2022 19:00:09 GMT-0500 (Central Daylight Time)"
+                to:
+                  type: string
+                  example: "Thu Sep 08 2022 14:16:50 GMT-0500 (Central Daylight Time)"
+            example:
+              from: "Sat Dec 25 2021 16:50:38 GMT-0600 (Central Standard Time)"
+              to: "Thu Sep 08 2022 17:03:52 GMT-0500 (Central Daylight Time)"
+      responses:
+        "200":
+          description: 200 OK
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: "*"
+            Connection:
+              schema:
+                type: string
+                example: close
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Date:
+              schema:
+                type: string
+                example: "Mon, 14 Jun 2021 14:30:25 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+            Server:
+              schema:
+                type: string
+                example: nginx
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+            X-RateLimit-Limit:
+              schema:
+                type: string
+                example: "120"
+            X-RateLimit-Remaining:
+              schema:
+                type: string
+                example: "119"
+            X-RateLimit-Reset:
+              schema:
+                type: string
+                example: "1623681083"
+            x-srv-span:
+              schema:
+                type: string
+                example: v=1;s=210e5b055e5bd71e
+            x-srv-trace:
+              schema:
+                type: string
+                example: v=1;t=d33d68b932344fce
+          content:
+            text/plain:
+              examples:
+                200 OK:
+                  value: "{\n    \"period\": {\n        \"from\": \"Sun May 08 2022 09:18:27 GMT-0500 (Central Daylight Time)\",\n        \"to\": \"Fri Sep 09 2022 06:35:31 GMT-0500 (Central Daylight Time)\"\n    },\n    \"balance\": {\n        \"opening\": 291.00,\n        \"closing\": 120.59\n    },\n    \"money\": {\n        \"in\": 482.94,\n        \"out\": 878.02\n    },\n    \"transactions\": [\n        {\n            \"date\": \"Fri Sep 09 2022 05:08:22 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"McDermott, Conroy and Renner\",\n            \"type\": \"withdrawal\",\n            \"amount\": 913.48,\n            \"balance\": 464.83\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 04:28:00 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Rath - Hansen\",\n            \"type\": \"invoice\",\n            \"amount\": 385.39,\n            \"balance\": 749.38\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 10:45:11 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Ebert - Gorczany\",\n            \"type\": \"invoice\",\n            \"amount\": 474.92,\n            \"balance\": 484.39\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 17:38:55 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"McDermott - Konopelski\",\n            \"type\": \"invoice\",\n            \"amount\": 465.65,\n            \"balance\": 244.43\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 03:15:53 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"McDermott - Connelly\",\n            \"type\": \"invoice\",\n            \"amount\": 249.21,\n            \"balance\": 962.22\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 14:10:23 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Zieme and Sons\",\n            \"type\": \"payment\",\n            \"amount\": 947.01,\n            \"balance\": 426.37\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 05:31:59 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Von Group\",\n            \"type\": \"withdrawal\",\n            \"amount\": 280.38,\n            \"balance\": 373.19\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 11:33:31 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Effertz - Rau\",\n            \"type\": \"withdrawal\",\n            \"amount\": 697.39,\n            \"balance\": 838.98\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 02:46:28 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Von, Schinner and Heathcote\",\n            \"type\": \"withdrawal\",\n            \"amount\": 750.81,\n            \"balance\": 875.54\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 12:10:45 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Murray - Zemlak\",\n            \"type\": \"withdrawal\",\n            \"amount\": 565.33,\n            \"balance\": 453.55\n        }\n    ]\n}"
+    parameters:
+      - name: accountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+  "/accounts/{accountNumber}/statement/latest":
+    get:
+      tags:
+        - Statement
+      summary: Latest
+      description: Latest
+      operationId: latest
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: accountNumber
+        in: path
+        required: true
+        schema:
+          type: string
+tags:
+  - name: Statement
