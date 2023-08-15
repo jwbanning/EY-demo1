@@ -16,6 +16,7 @@
 							"listen": "test",
 							"script": {
 								"id": "852b3df9-de81-463b-bcac-c13dca98c6c4",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Body to have work - period\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"period\");",
@@ -39,8 +40,7 @@
 									"    pm.expect(tv4.validate(data1, schema)).to.be.true;",
 									"    pm.expect(tv4.validate(data2, schema)).to.be.true;",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -126,12 +126,12 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "json",
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
 									"name": "Content-Type",
-									"value": "application/json",
+									"value": "text/plain",
 									"description": "",
 									"type": "text",
 									"enabled": true
@@ -249,50 +249,7 @@
 						},
 						"description": "Latest"
 					},
-					"response": [
-						{
-							"id": "0ea63b3e-07dc-4d39-9ef0-31cb86a42633",
-							"name": "200 OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/accounts/:accountNumber/statement/latest",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"accounts",
-										":accountNumber",
-										"statement",
-										"latest"
-									],
-									"variable": [
-										{
-											"key": "accountNumber",
-											"value": "<string>"
-										}
-									]
-								},
-								"description": "Latest"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"name": "Content-Type",
-									"value": "application/json",
-									"description": "",
-									"type": "text",
-									"enabled": true
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"period\": \"latest\",\n    \"balance\": {\n        \"opening\": 642.63,\n        \"closing\": 764.76\n    },\n    \"money\": {\n        \"in\": 63.38,\n        \"out\": 822.17\n    },\n    \"transactions\": [\n        {\n            \"date\": \"Fri Sep 09 2022 07:15:49 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Kautzer, Tillman and Corwin\",\n            \"type\": \"withdrawal\",\n            \"amount\": 324.44,\n            \"balance\": 861.61\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 13:40:02 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Gaylord - Crooks\",\n            \"type\": \"deposit\",\n            \"amount\": 769.58,\n            \"balance\": 133.78\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 01:30:12 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Mills, Frami and Schimmel\",\n            \"type\": \"invoice\",\n            \"amount\": 327.39,\n            \"balance\": 512.55\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 19:05:50 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Beahan - Nienow\",\n            \"type\": \"invoice\",\n            \"amount\": 604.38,\n            \"balance\": 537.21\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 14:44:00 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Willms, O'Conner and Grimes\",\n            \"type\": \"payment\",\n            \"amount\": 685.37,\n            \"balance\": 58.08\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 08:36:45 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Krajcik - Kuvalis\",\n            \"type\": \"payment\",\n            \"amount\": 491.30,\n            \"balance\": 558.11\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 08:58:16 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"McClure - Zboncak\",\n            \"type\": \"withdrawal\",\n            \"amount\": 166.23,\n            \"balance\": 354.33\n        },\n        {\n            \"date\": \"Fri Sep 09 2022 06:36:34 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Smith - Kemmer\",\n            \"type\": \"invoice\",\n            \"amount\": 894.00,\n            \"balance\": 769.44\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 13:06:29 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"Runolfsdottir - Stamm\",\n            \"type\": \"invoice\",\n            \"amount\": 757.35,\n            \"balance\": 295.93\n        },\n        {\n            \"date\": \"Thu Sep 08 2022 22:32:16 GMT-0500 (Central Daylight Time)\",\n            \"description\": \"McGlynn, Reinger and Gutmann\",\n            \"type\": \"withdrawal\",\n            \"amount\": 891.08,\n            \"balance\": 317.09\n        }\n    ]\n}"
-						}
-					]
+					"response": []
 				}
 			],
 			"id": "5b1e4aed-e889-4576-bfb7-02bda81b3b62",
@@ -322,12 +279,13 @@
 			]
 		},
 		{
-			"name": "Create",
+			"name": "Create - this is a new summary",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"id": "ef08fb28-39b5-4526-a994-a42ee1379841",
+						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 201\", function () {",
 							"    pm.response.to.have.status(201);",
@@ -336,8 +294,7 @@
 							"pm.test(\"Status code is 201\", function () {",
 							"    pm.response.to.have.status(201);",
 							"});"
-						],
-						"type": "text/javascript"
+						]
 					}
 				}
 			],
@@ -353,16 +310,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"holder\": \"<string>\",\n  \"type\": \"<string>\"\n}",
-					"options": {
-						"raw": {
-							"headerFamily": "json",
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/accounts/create",
 					"host": [
@@ -377,16 +324,11 @@
 			},
 			"response": [
 				{
-					"id": "94a0dab5-c8c1-4c85-ae63-0e4f4d2883a1",
-					"name": "201 example",
+					"id": "45802f2d-5aea-454f-826a-094893964e1f",
+					"name": "Untitled Example",
 					"originalRequest": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"holder\": \"<string>\",\n  \"type\": \"<string>\"\n}",
@@ -406,24 +348,13 @@
 								"accounts",
 								"create"
 							]
-						},
-						"description": "Create"
+						}
 					},
 					"status": "OK",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"name": "Content-Type",
-							"value": "application/json",
-							"description": "",
-							"type": "text",
-							"enabled": true
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"type\": \"Home Loan Account\",\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"02864859\",\n            \"routing\": \"56368036\"\n        },\n        \"international\": {\n            \"bic\": \"VKHEVEB1577\",\n            \"iban\": \"GR0401054831T6106A9703DC41Q\"\n        }\n    }\n}"
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": []
 				}
 			]
 		},
@@ -434,12 +365,12 @@
 					"listen": "test",
 					"script": {
 						"id": "1aca4b8d-97d9-4801-afcc-84a57f6dfff8",
+						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
-						],
-						"type": "text/javascript"
+						]
 					}
 				}
 			],
@@ -469,49 +400,7 @@
 				},
 				"description": "Overview"
 			},
-			"response": [
-				{
-					"id": "48ea6011-231f-4aeb-8efb-de792d450e4c",
-					"name": "200 OK",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/accounts/:accountNumber/overview",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"accounts",
-								":accountNumber",
-								"overview"
-							],
-							"variable": [
-								{
-									"key": "accountNumber",
-									"value": "<string>"
-								}
-							]
-						},
-						"description": "Overview"
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"name": "Content-Type",
-							"value": "application/json",
-							"description": "",
-							"type": "text",
-							"enabled": true
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"type\": \"Investment Account\",\n    \"balance\": {\n        \"available\": 197.47,\n        \"present\": 397.78\n    },\n    \"details\": {\n        \"domestic\": {\n            \"account\": \"79803447\",\n            \"routing\": \"99873815\"\n        },\n        \"international\": {\n            \"bic\": \"KZLUMRM1\",\n            \"iban\": \"GE53ZA8484959957044097\"\n        }\n    },\n    \"interestRate\": 0.01,\n    \"lastStatementDate\": \"Fri Sep 09 2022 07:10:20 GMT-0500 (Central Daylight Time)\"\n}"
-				}
-			]
+			"response": []
 		}
 	],
 	"event": [
@@ -540,7 +429,8 @@
 		{
 			"id": "110d9727-6096-41fd-b27f-dd2eac978907",
 			"key": "baseUrl",
-			"value": "https://5b7dd56c-5027-4eb8-91d1-21a0dccf8547.mock.pstmn.io"
+			"value": "https://5b7dd56c-5027-4eb8-91d1-21a0dccf8547.mock.pstmn.io",
+			"type": "any"
 		}
 	]
 }
